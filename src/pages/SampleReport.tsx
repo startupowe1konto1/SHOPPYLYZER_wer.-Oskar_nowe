@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useNavigate } from 'react-router-dom';
+import { Navbar } from '@/components/Navbar';
 
 interface ProductRecommendation {
   id: string;
@@ -45,9 +46,9 @@ const generateMockData = (): ProductRecommendation[] => {
   return Array.from({ length: 100 }, (_, index) => {
     const baseProduct = products[index % products.length];
     const template = recommendationTemplates[index % recommendationTemplates.length];
-    const priceVariation = (Math.random() - 0.5) * 0.4; // -20% to +20%
+    const priceVariation = (Math.random() - 0.5) * 0.4;
     const recommendedPrice = baseProduct.basePrice * (1 + priceVariation);
-    const potentialUplift = Math.random() * 40 + 10; // 10-50% potential uplift
+    const potentialUplift = Math.random() * 40 + 10;
     
     return {
       id: `PROD-${String(index + 1).padStart(3, '0')}`,
@@ -56,7 +57,7 @@ const generateMockData = (): ProductRecommendation[] => {
       recommendedPrice: Math.round(recommendedPrice * 100) / 100,
       category: baseProduct.category,
       recommendedCategory: baseProduct.category,
-      descriptionScore: Math.floor(Math.random() * 40) + 60, // 60-100 score
+      descriptionScore: Math.floor(Math.random() * 40) + 60,
       recommendations: template,
       potentialUplift: Math.round(potentialUplift),
     };
@@ -79,31 +80,26 @@ const SampleReport = () => {
 
   const getDescriptionScoreBadge = (score: number) => {
     if (score >= 90) return <Badge variant="secondary" className="bg-green-100 text-green-800">Excellent</Badge>;
-    if (score >= 80) return <Badge variant="secondary" className="bg-blue-100 text-blue-800">Good</Badge>;
-    if (score >= 70) return <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">Fair</Badge>;
+    if (score >= 80) return <Badge variant="secondary" className="bg-primary/10 text-primary">Good</Badge>;
+    if (score >= 70) return <Badge variant="secondary" className="bg-accent-brand/10 text-accent-brand">Fair</Badge>;
     return <Badge variant="destructive">Needs Work</Badge>;
   };
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
-          <Button 
-            variant="outline" 
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2"
-          >
+          <Button variant="outline" onClick={() => navigate('/')} className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Button>
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-foreground">Sample Recommendations Report</h1>
-            <p className="text-muted-foreground mt-2">
-              AI-powered optimization recommendations for 100 Amazon marketplace products
-            </p>
+            <h1 className="text-3xl font-bold text-primary">Sample Recommendations Report</h1>
+            <p className="text-muted-foreground mt-2">AI-powered optimization recommendations for 100 Amazon marketplace products</p>
           </div>
-          <Button className="flex items-center gap-2">
+          <Button variant="cta" className="flex items-center gap-2">
             <Download className="h-4 w-4" />
             Export Report
           </Button>
@@ -117,7 +113,7 @@ const SampleReport = () => {
                 <FileText className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <p className="text-2xl font-bold">100</p>
+                <p className="text-2xl font-bold text-accent-brand">100</p>
                 <p className="text-sm text-muted-foreground">Products Analyzed</p>
               </div>
             </div>
@@ -128,29 +124,29 @@ const SampleReport = () => {
                 <TrendingUp className="h-6 w-6 text-green-600" />
               </div>
               <div>
-                <p className="text-2xl font-bold">27%</p>
+                <p className="text-2xl font-bold text-accent-brand">27%</p>
                 <p className="text-sm text-muted-foreground">Avg. Potential Uplift</p>
               </div>
             </div>
           </Card>
           <Card className="p-6">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <DollarSign className="h-6 w-6 text-blue-600" />
+              <div className="p-3 bg-primary/10 rounded-lg">
+                <DollarSign className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <p className="text-2xl font-bold">73</p>
+                <p className="text-2xl font-bold text-accent-brand">73</p>
                 <p className="text-sm text-muted-foreground">Price Optimizations</p>
               </div>
             </div>
           </Card>
           <Card className="p-6">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-orange-100 rounded-lg">
-                <Target className="h-6 w-6 text-orange-600" />
+              <div className="p-3 bg-accent-brand/10 rounded-lg">
+                <Target className="h-6 w-6 text-accent-brand" />
               </div>
               <div>
-                <p className="text-2xl font-bold">89</p>
+                <p className="text-2xl font-bold text-accent-brand">89</p>
                 <p className="text-sm text-muted-foreground">Content Improvements</p>
               </div>
             </div>
@@ -160,10 +156,8 @@ const SampleReport = () => {
         {/* Data Table */}
         <Card className="p-6">
           <div className="mb-4">
-            <h2 className="text-xl font-semibold mb-2">Product Recommendations</h2>
-            <p className="text-sm text-muted-foreground">
-              Detailed recommendations for pricing, content, and categorization optimization
-            </p>
+            <h2 className="text-xl font-semibold text-primary mb-2">Product Recommendations</h2>
+            <p className="text-sm text-muted-foreground">Detailed recommendations for pricing, content, and categorization optimization</p>
           </div>
           
           <div className="rounded-md border overflow-hidden">
