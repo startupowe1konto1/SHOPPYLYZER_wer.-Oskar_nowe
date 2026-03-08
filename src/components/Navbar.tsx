@@ -77,7 +77,7 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden md:block">
-          <Button variant="cta" size="sm" onClick={() => handleNavClick('#cennik')}>
+          <Button variant="cta" size="sm" onClick={openWaitlist}>
             Wypróbuj za darmo
           </Button>
         </div>
