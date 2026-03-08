@@ -7,7 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 
 interface ProductRecommendation {
   id: string;
