@@ -11,17 +11,17 @@ export const HeroVariant1 = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              🟢 Sprzedawcy zarabiają średnio 18% więcej na tych samych produktach
+              📊 Dla sprzedawców na Allegro którzy chcą zarabiać więcej — nie pracować więcej
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-              <span style={{ color: '#163D5C' }}>Sprzedajesz te same produkty.</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+              <span style={{ color: '#163D5C' }}>Codziennie tracisz marżę,</span>
               <br />
-              <span style={{ color: '#F0921C' }}>Czas zacząć zarabiać na nich więcej.</span>
+              <span style={{ color: '#F0921C' }}>bo nie wiesz gdzie jej szukać.</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
               Shoppalyzer analizuje Twoją konkurencję na Allegro
-              i pokazuje dokładnie: gdzie tracisz marżę, gdzie możesz
-              podnieść cenę — i co zrobić jutro rano, żeby zarobić więcej.
+              i pokazuje dokładnie gdzie zostawiasz pieniądze na stole —
+              i co zrobić żeby jutro zarobić więcej.
               Bez Excela. Bez godzin przeklikiwania.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
