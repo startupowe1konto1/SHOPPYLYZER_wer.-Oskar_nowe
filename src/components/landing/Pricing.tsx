@@ -77,4 +77,5 @@ export const Pricing = () => {
       </p>
     </div>
   </section>
-);
+  );
+};

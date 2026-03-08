@@ -17,7 +17,7 @@ export const FinalCTA = () => {
             Dołącz do ponad 200 sprzedawców na Allegro, którzy podejmują mądrzejsze decyzje każdego dnia dzięki Shoppalyzerowi.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="cta" size="lg">
+            <Button variant="cta" size="lg" onClick={openWaitlist}>
               Sprawdź swoje oferty za darmo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
