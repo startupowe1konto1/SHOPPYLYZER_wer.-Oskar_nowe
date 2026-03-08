@@ -21,14 +21,21 @@ export const FinalCTA = () => {
               Sprawdź swoje oferty za darmo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+            <button
               onClick={() => navigate('/sample-report')}
+              style={{
+                background: 'transparent',
+                border: '2px solid white',
+                color: 'white',
+                fontWeight: 700,
+                padding: '10px 32px',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontSize: '16px',
+              }}
             >
               Zobacz przykładowy raport
-            </Button>
+            </button>
           </div>
           <p className="text-sm text-primary-foreground/70 mt-5">
             Bez karty kredytowej • Konfiguracja w 5 minut
