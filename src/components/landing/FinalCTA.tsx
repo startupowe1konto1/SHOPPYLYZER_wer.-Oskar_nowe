@@ -5,6 +5,7 @@ import { useWaitlist } from '@/context/WaitlistContext';
 
 export const FinalCTA = () => {
   const navigate = useNavigate();
+  const { openWaitlist } = useWaitlist();
   return (
     <section className="py-20 bg-gradient-primary">
       <div className="container mx-auto px-4 text-center">
