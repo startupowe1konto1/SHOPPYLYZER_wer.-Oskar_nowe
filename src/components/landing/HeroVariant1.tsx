@@ -6,7 +6,7 @@ import { useWaitlist } from '@/context/WaitlistContext';
 
 export const HeroVariant1 = () => {
   const navigate = useNavigate();
-  return (
+  const { openWaitlist } = useWaitlist();
     <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(207_65%_34%/0.05)] via-white to-[hsl(33_88%_52%/0.05)] border-b">
       <div className="container mx-auto px-4 py-16 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
