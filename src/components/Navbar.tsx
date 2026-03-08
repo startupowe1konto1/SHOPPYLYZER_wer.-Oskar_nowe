@@ -13,6 +13,7 @@ const navLinks = [
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const { openWaitlist } = useWaitlist();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
