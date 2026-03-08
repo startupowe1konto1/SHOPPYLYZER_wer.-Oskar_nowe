@@ -11,23 +11,23 @@ export const HeroVariant3 = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              🛡️ Ponad 200 sprzedawców odzyskało kontrolę nad ofertami
+              🟢 Ponad 200 sprzedawców na Allegro zwiększyło marżę w pierwszym miesiącu
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight">
-              Konkurencja znów obniżyła ceny.<br />
-              <span className="text-accent-brand">Kiedy się o tym dowiedziałeś?</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+              <span style={{ color: '#163D5C' }}>Twoja konkurencja już wie,</span>
+              <br />
+              <span style={{ color: '#F0921C' }}>kiedy możesz zarobić więcej.</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              Ceny na Allegro zmieniają się co godzinę.
-              Podpinacze psują Twoje oferty. Chińscy sprzedawcy
-              dumpingują bez ostrzeżenia. A Ty reagujesz za późno
-              — bo nie masz jak tego śledzić.
-              Shoppalyzer monitoruje Twoją kategorię
-              i alarmuje Cię zanim zaczniesz tracić sprzedaż.
+              Kiedy konkurent wyprzeda zapas — możesz podnieść cenę
+              i zgarnąć wyższą marżę bez utraty pozycji.
+              Ale musisz to wiedzieć w odpowiednim momencie.
+              Shoppalyzer śledzi rynek za Ciebie i mówi:
+              właśnie teraz — tutaj możesz zarobić więcej.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="cta" size="lg">
-                Sprawdź swoją kategorię za darmo
+                Znajdź moje okazje marżowe — za darmo
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" size="lg" onClick={() => navigate('/sample-report')}>
@@ -35,7 +35,7 @@ export const HeroVariant3 = () => {
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-5">
-              Bez karty kredytowej • Pierwsze 100 SKU gratis • Działa z Allegro
+              Bez karty kredytowej  •  Pierwsze 100 SKU gratis  •  Działa z Allegro
             </p>
           </div>
           <div className="hidden lg:block">

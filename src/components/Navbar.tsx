@@ -42,22 +42,21 @@ export const Navbar = () => {
         scrolled ? 'shadow-[0_2px_12px_-2px_hsl(207_58%_23%/0.15)]' : ''
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between py-3" style={{ minHeight: '80px' }}>
+      <div className="container mx-auto px-4 flex items-center justify-between" style={{ minHeight: '88px', alignItems: 'center' }}>
         <a
           href="/"
-          className="flex items-center overflow-visible"
+          className="flex items-center"
           onClick={(e) => { e.preventDefault(); navigate('/'); }}
         >
           <img
             src="/shoppalyzer_2.png"
             alt="Shoppalyzer"
             style={{
-              height: '64px',
+              height: '72px',
               width: 'auto',
-              minWidth: '200px',
               objectFit: 'contain' as const,
               display: 'block',
-              filter: 'drop-shadow(0px 1px 3px rgba(30,95,142,0.15))'
+              filter: 'drop-shadow(0px 1px 4px rgba(30,95,142,0.2))'
             }}
           />
         </a>
