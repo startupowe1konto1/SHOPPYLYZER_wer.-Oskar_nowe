@@ -1,6 +1,6 @@
 import { Linkedin, Facebook } from 'lucide-react';
 import { useWaitlist } from '@/context/WaitlistContext';
-import { Input } from '@/components/ui/input';
+
 
 const scrollTo = (id: string) => {
   document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
