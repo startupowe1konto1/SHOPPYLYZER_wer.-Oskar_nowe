@@ -11,22 +11,22 @@ export const HeroVariant1 = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              ⏱️ Sprzedawcy odzyskują średnio 6 godzin tygodniowo
+              🟢 Sprzedawcy zarabiają średnio 18% więcej na tych samych produktach
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight">
-              Ile godzin w tym tygodniu<br />
-              <span className="text-accent-brand">zmarnowałeś na Excela?</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+              <span style={{ color: '#163D5C' }}>Sprzedajesz te same produkty.</span>
+              <br />
+              <span style={{ color: '#F0921C' }}>Czas zacząć zarabiać na nich więcej.</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              Ręczne przeklikiwanie ofert, przepisywanie cen,
-              arkusze które są nieaktualne zanim je skończysz —
-              to „zło konieczne" każdego sprzedawcy na Allegro.
-              Shoppalyzer robi całą tę robotę za Ciebie
-              i dostarcza gotową analizę każdego ranka.
+              Shoppalyzer analizuje Twoją konkurencję na Allegro
+              i pokazuje dokładnie: gdzie tracisz marżę, gdzie możesz
+              podnieść cenę — i co zrobić jutro rano, żeby zarobić więcej.
+              Bez Excela. Bez godzin przeklikiwania.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="cta" size="lg">
-                Wypróbuj za darmo
+                Sprawdź ile tracisz za darmo
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" size="lg" onClick={() => navigate('/sample-report')}>
@@ -34,7 +34,7 @@ export const HeroVariant1 = () => {
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-5">
-              Bez karty kredytowej • Pierwsze 100 SKU gratis • Działa z Allegro
+              Bez karty kredytowej  •  Pierwsze 100 SKU gratis  •  Wyniki już po pierwszym raporcie
             </p>
           </div>
           <div className="hidden lg:block">
