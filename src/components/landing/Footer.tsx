@@ -1,5 +1,5 @@
 import { Linkedin, Facebook } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useWaitlist } from '@/context/WaitlistContext';
 import { Input } from '@/components/ui/input';
 
 const scrollTo = (id: string) => {
