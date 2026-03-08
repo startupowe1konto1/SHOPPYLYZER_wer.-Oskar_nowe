@@ -34,6 +34,8 @@ export const Navbar = () => {
     }
   };
 
+  const logoStyle = { filter: 'drop-shadow(0px 1px 2px rgba(30, 95, 142, 0.15))' };
+
   return (
     <nav
       className={`sticky top-0 z-50 bg-background border-b border-primary/20 transition-shadow duration-300 ${
@@ -41,8 +43,18 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
-        <a href="/" className="flex items-center" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
-          <img src="/shoppalyzer_2.png" alt="Shoppalyzer" className="h-8 md:h-10 w-auto" />
+        <a
+          href="/"
+          className="flex items-center overflow-visible"
+          style={{ minWidth: '180px' }}
+          onClick={(e) => { e.preventDefault(); navigate('/'); }}
+        >
+          <img
+            src="/shoppalyzer_2.png"
+            alt="Shoppalyzer"
+            className="h-10 md:h-[52px] w-auto object-contain"
+            style={logoStyle}
+          />
         </a>
 
         {/* Desktop nav */}

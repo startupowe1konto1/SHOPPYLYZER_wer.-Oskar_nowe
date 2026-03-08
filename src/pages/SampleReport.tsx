@@ -1,10 +1,13 @@
-import { ArrowLeft, Download, TrendingUp, TrendingDown, Target, FileText, DollarSign } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowLeft, Download, TrendingUp, TrendingDown, Target, FileText, DollarSign, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 interface ProductRecommendation {
   id: string;
@@ -24,23 +27,23 @@ interface ProductRecommendation {
 
 const generateMockData = (): ProductRecommendation[] => {
   const products = [
-    { title: "Wireless Bluetooth Headphones", category: "Electronics", basePrice: 79.99 },
-    { title: "Stainless Steel Water Bottle", category: "Sports & Outdoors", basePrice: 24.99 },
-    { title: "LED Desk Lamp with USB Charging", category: "Home & Garden", basePrice: 45.99 },
-    { title: "Yoga Mat Non-Slip Exercise Mat", category: "Sports & Fitness", basePrice: 29.99 },
-    { title: "Coffee Maker 12-Cup Programmable", category: "Kitchen & Dining", basePrice: 89.99 },
-    { title: "Smartphone Car Mount Holder", category: "Cell Phones & Accessories", basePrice: 19.99 },
-    { title: "Memory Foam Pillow Set", category: "Home & Kitchen", basePrice: 49.99 },
-    { title: "Portable Bluetooth Speaker", category: "Electronics", basePrice: 39.99 },
-    { title: "Fitness Tracker Smart Watch", category: "Electronics", basePrice: 129.99 },
-    { title: "Air Fryer 6-Quart Digital", category: "Kitchen & Dining", basePrice: 119.99 },
+    { title: "Słuchawki bezprzewodowe Bluetooth", category: "Elektronika", basePrice: 79.99 },
+    { title: "Butelka termiczna ze stali", category: "Sport i rekreacja", basePrice: 24.99 },
+    { title: "Lampka biurkowa LED z USB", category: "Dom i ogród", basePrice: 45.99 },
+    { title: "Mata do jogi antypoślizgowa", category: "Sport i fitness", basePrice: 29.99 },
+    { title: "Ekspres przelewowy 12 filiżanek", category: "Kuchnia", basePrice: 89.99 },
+    { title: "Uchwyt samochodowy na telefon", category: "Akcesoria GSM", basePrice: 19.99 },
+    { title: "Zestaw poduszek memory foam", category: "Dom i kuchnia", basePrice: 49.99 },
+    { title: "Głośnik przenośny Bluetooth", category: "Elektronika", basePrice: 39.99 },
+    { title: "Smartwatch z pulsometrem", category: "Elektronika", basePrice: 129.99 },
+    { title: "Frytkownica beztłuszczowa 6L", category: "Kuchnia", basePrice: 119.99 },
   ];
 
   const recommendationTemplates = [
-    { pricing: "Increase price by 15-20% to match market premium", description: "Add bullet points highlighting key features", category: "Move to premium electronics category" },
-    { pricing: "Reduce price by 10% to increase competitiveness", description: "Emphasize eco-friendly materials", category: "Optimize for sports accessories" },
-    { pricing: "Price is optimal, consider bundling", description: "Add technical specifications in title", category: "Better positioning in home improvement" },
-    { pricing: "Implement dynamic pricing strategy", description: "Include size and material details", category: "Target fitness enthusiasts category" },
+    { pricing: "Podnieś cenę o 15–20% do poziomu rynkowego", description: "Dodaj wypunktowanie kluczowych cech", category: "Przenieś do kategorii premium" },
+    { pricing: "Obniż cenę o 10% dla konkurencyjności", description: "Podkreśl ekologiczne materiały", category: "Optymalizuj dla akcesoriów sportowych" },
+    { pricing: "Cena optymalna, rozważ bundling", description: "Dodaj specyfikację techniczną w tytule", category: "Lepsza pozycja w kategorii dom" },
+    { pricing: "Wdróż dynamiczną strategię cenową", description: "Uwzględnij rozmiar i materiał", category: "Kieruj na kategorię fitness" },
   ];
 
   return Array.from({ length: 100 }, (_, index) => {
@@ -49,10 +52,10 @@ const generateMockData = (): ProductRecommendation[] => {
     const priceVariation = (Math.random() - 0.5) * 0.4;
     const recommendedPrice = baseProduct.basePrice * (1 + priceVariation);
     const potentialUplift = Math.random() * 40 + 10;
-    
+
     return {
       id: `PROD-${String(index + 1).padStart(3, '0')}`,
-      title: `${baseProduct.title} ${index > 9 ? `- Model ${Math.floor(index / 10) + 1}` : ''}`,
+      title: `${baseProduct.title}${index > 9 ? ` — Model ${Math.floor(index / 10) + 1}` : ''}`,
       currentPrice: baseProduct.basePrice,
       recommendedPrice: Math.round(recommendedPrice * 100) / 100,
       category: baseProduct.category,
@@ -67,6 +70,7 @@ const generateMockData = (): ProductRecommendation[] => {
 const SampleReport = () => {
   const navigate = useNavigate();
   const mockData = generateMockData();
+  const [pdfLoading, setPdfLoading] = useState(false);
 
   const getPriceChangeIcon = (current: number, recommended: number) => {
     if (recommended > current) return <TrendingUp className="h-4 w-4 text-green-600" />;
@@ -79,10 +83,182 @@ const SampleReport = () => {
   };
 
   const getDescriptionScoreBadge = (score: number) => {
-    if (score >= 90) return <Badge variant="secondary" className="bg-green-100 text-green-800">Excellent</Badge>;
-    if (score >= 80) return <Badge variant="secondary" className="bg-primary/10 text-primary">Good</Badge>;
-    if (score >= 70) return <Badge variant="secondary" className="bg-accent-brand/10 text-accent-brand">Fair</Badge>;
-    return <Badge variant="destructive">Needs Work</Badge>;
+    if (score >= 90) return <Badge variant="secondary" className="bg-green-100 text-green-800">Wysoka</Badge>;
+    if (score >= 80) return <Badge variant="secondary" className="bg-primary/10 text-primary">Dobra</Badge>;
+    if (score >= 70) return <Badge variant="secondary" className="bg-accent-brand/10 text-accent-brand">Średnia</Badge>;
+    return <Badge variant="destructive">Niska</Badge>;
+  };
+
+  const getScoreLabel = (score: number) => {
+    if (score >= 90) return 'Wysoka';
+    if (score >= 80) return 'Dobra';
+    if (score >= 70) return 'Średnia';
+    return 'Niska';
+  };
+
+  const handleExportPDF = async () => {
+    setPdfLoading(true);
+
+    // Load logo as base64
+    let logoBase64: string | null = null;
+    try {
+      const response = await fetch('/shoppalyzer_2.png');
+      const blob = await response.blob();
+      logoBase64 = await new Promise<string>((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.readAsDataURL(blob);
+      });
+    } catch {
+      // proceed without logo
+    }
+
+    setTimeout(() => {
+      const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+      const margin = 15;
+      const contentWidth = pageWidth - margin * 2;
+      const today = new Date();
+      const dateStr = `${String(today.getDate()).padStart(2, '0')}.${String(today.getMonth() + 1).padStart(2, '0')}.${today.getFullYear()}`;
+
+      const addHeaderFooter = (pageNum: number, totalPages: number) => {
+        // Header
+        if (logoBase64) {
+          doc.addImage(logoBase64, 'PNG', margin, 10, 35, 12);
+        }
+        doc.setFontSize(14);
+        doc.setTextColor(30, 95, 142);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Raport Analityczny', pageWidth - margin, 15, { align: 'right' });
+        doc.setFontSize(9);
+        doc.setTextColor(102, 102, 102);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Wygenerowano: ${dateStr}`, pageWidth - margin, 21, { align: 'right' });
+
+        // Header line
+        doc.setDrawColor(30, 95, 142);
+        doc.setLineWidth(0.3);
+        doc.line(margin, 26, pageWidth - margin, 26);
+
+        // Footer
+        doc.setDrawColor(221, 221, 221);
+        doc.setLineWidth(0.2);
+        doc.line(margin, pageHeight - 12, pageWidth - margin, pageHeight - 12);
+        doc.setFontSize(7);
+        doc.setTextColor(153, 153, 153);
+        doc.setFont('helvetica', 'normal');
+        doc.text('© 2025 Shoppalyzer — shoppalyzer.pl', margin, pageHeight - 8);
+        doc.text('Dokument poufny — wygenerowany automatycznie', pageWidth / 2, pageHeight - 8, { align: 'center' });
+        doc.text(`Strona ${pageNum} z ${totalPages}`, pageWidth - margin, pageHeight - 8, { align: 'right' });
+      };
+
+      // --- Page 1: Summary + Table start ---
+      let y = 32;
+
+      // Summary title
+      doc.setFontSize(12);
+      doc.setTextColor(30, 95, 142);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Podsumowanie analizy', margin, y);
+      y += 8;
+
+      // Summary boxes (2x2)
+      const summaryItems = [
+        { label: 'Przeanalizowane produkty', value: '100' },
+        { label: 'Średni potencjalny wzrost', value: '27%' },
+        { label: 'Optymalizacje cenowe', value: '73' },
+        { label: 'Propozycje zmian', value: '89' },
+      ];
+      const boxW = (contentWidth - 6) / 2;
+      const boxH = 14;
+      summaryItems.forEach((item, i) => {
+        const col = i % 2;
+        const row = Math.floor(i / 2);
+        const bx = margin + col * (boxW + 6);
+        const by = y + row * (boxH + 4);
+        doc.setFillColor(235, 244, 251);
+        doc.roundedRect(bx, by, boxW, boxH, 2, 2, 'F');
+        doc.setFontSize(8);
+        doc.setTextColor(102, 102, 102);
+        doc.setFont('helvetica', 'normal');
+        doc.text(item.label, bx + 4, by + 5);
+        doc.setFontSize(11);
+        doc.setTextColor(30, 95, 142);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.value, bx + 4, by + 11);
+      });
+      y += (boxH + 4) * 2 + 6;
+
+      // Table title
+      doc.setFontSize(11);
+      doc.setTextColor(30, 95, 142);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Rekomendacje produktowe', margin, y);
+      y += 6;
+
+      // Table
+      const tableData = mockData.map((p) => {
+        const change = getPriceChangePercentage(p.currentPrice, p.recommendedPrice);
+        return [
+          p.id,
+          p.title,
+          `${p.currentPrice.toFixed(2)} zł`,
+          `${p.recommendedPrice.toFixed(2)} zł`,
+          `${change > 0 ? '+' : ''}${change}%`,
+          `${p.descriptionScore} — ${getScoreLabel(p.descriptionScore)}`,
+          `+${p.potentialUplift}%`,
+        ];
+      });
+
+      (doc as any).autoTable({
+        startY: y,
+        head: [['ID', 'Nazwa produktu', 'Cena aktualna', 'Cena rekomendowana', 'Zmiana %', 'Ocena opisu', 'Potencjał']],
+        body: tableData,
+        margin: { left: margin, right: margin, bottom: 18 },
+        styles: {
+          fontSize: 8,
+          cellPadding: 2,
+          lineColor: [221, 221, 221],
+          lineWidth: 0.15,
+        },
+        headStyles: {
+          fillColor: [30, 95, 142],
+          textColor: [255, 255, 255],
+          fontStyle: 'bold',
+          fontSize: 9,
+        },
+        alternateRowStyles: {
+          fillColor: [240, 247, 255],
+        },
+        columnStyles: {
+          0: { cellWidth: 18 },
+          4: { cellWidth: 18 },
+          5: { cellWidth: 28 },
+          6: { cellWidth: 18 },
+        },
+        didParseCell: (data: any) => {
+          if (data.section === 'body' && data.column.index === 4) {
+            const val = data.cell.raw as string;
+            if (val.startsWith('+')) {
+              data.cell.styles.textColor = [22, 163, 74];
+            } else if (val.startsWith('-')) {
+              data.cell.styles.textColor = [220, 38, 38];
+            }
+          }
+        },
+      });
+
+      // Add headers and footers to all pages
+      const totalPages = doc.getNumberOfPages();
+      for (let i = 1; i <= totalPages; i++) {
+        doc.setPage(i);
+        addHeaderFooter(i, totalPages);
+      }
+
+      doc.save(`Shoppalyzer_Raport_${dateStr.replace(/\./g, '-')}.pdf`);
+      setPdfLoading(false);
+    }, 800);
   };
 
   return (
@@ -90,18 +266,32 @@ const SampleReport = () => {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
           <Button variant="outline" onClick={() => navigate('/')} className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
-            Back to Home
+            Wróć na stronę główną
           </Button>
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-primary">Sample Recommendations Report</h1>
-            <p className="text-muted-foreground mt-2">AI-powered optimization recommendations for 100 Amazon marketplace products</p>
+            <h1 className="text-3xl font-bold text-primary">Przykładowy Raport Shoppalyzer</h1>
+            <p className="text-muted-foreground mt-2">Rekomendacje dla 100 produktów na Allegro — wygenerowane przez algorytm Shoppalyzera</p>
           </div>
-          <Button variant="cta" className="flex items-center gap-2">
-            <Download className="h-4 w-4" />
-            Export Report
+          <Button
+            variant="cta"
+            className="flex items-center gap-2"
+            onClick={handleExportPDF}
+            disabled={pdfLoading}
+          >
+            {pdfLoading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Generowanie...
+              </>
+            ) : (
+              <>
+                <Download className="h-4 w-4" />
+                Pobierz raport PDF
+              </>
+            )}
           </Button>
         </div>
 
@@ -114,7 +304,7 @@ const SampleReport = () => {
               </div>
               <div>
                 <p className="text-2xl font-bold text-accent-brand">100</p>
-                <p className="text-sm text-muted-foreground">Products Analyzed</p>
+                <p className="text-sm text-muted-foreground">Przeanalizowanych produktów</p>
               </div>
             </div>
           </Card>
@@ -125,7 +315,7 @@ const SampleReport = () => {
               </div>
               <div>
                 <p className="text-2xl font-bold text-accent-brand">27%</p>
-                <p className="text-sm text-muted-foreground">Avg. Potential Uplift</p>
+                <p className="text-sm text-muted-foreground">Średni potencjał wzrostu</p>
               </div>
             </div>
           </Card>
@@ -136,7 +326,7 @@ const SampleReport = () => {
               </div>
               <div>
                 <p className="text-2xl font-bold text-accent-brand">73</p>
-                <p className="text-sm text-muted-foreground">Price Optimizations</p>
+                <p className="text-sm text-muted-foreground">Optymalizacje cenowe</p>
               </div>
             </div>
           </Card>
@@ -147,7 +337,7 @@ const SampleReport = () => {
               </div>
               <div>
                 <p className="text-2xl font-bold text-accent-brand">89</p>
-                <p className="text-sm text-muted-foreground">Content Improvements</p>
+                <p className="text-sm text-muted-foreground">Propozycje zmian treści</p>
               </div>
             </div>
           </Card>
@@ -156,22 +346,22 @@ const SampleReport = () => {
         {/* Data Table */}
         <Card className="p-6">
           <div className="mb-4">
-            <h2 className="text-xl font-semibold text-primary mb-2">Product Recommendations</h2>
-            <p className="text-sm text-muted-foreground">Detailed recommendations for pricing, content, and categorization optimization</p>
+            <h2 className="text-xl font-semibold text-primary mb-2">Rekomendacje produktowe</h2>
+            <p className="text-sm text-muted-foreground">Szczegółowe rekomendacje cenowe i asortymentowe</p>
           </div>
-          
-          <div className="rounded-md border overflow-hidden">
+
+          <div className="rounded-md border overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[100px]">Product ID</TableHead>
-                  <TableHead className="min-w-[300px]">Product Title</TableHead>
-                  <TableHead>Current Price</TableHead>
-                  <TableHead>Recommended Price</TableHead>
-                  <TableHead>Change</TableHead>
-                  <TableHead>Description Score</TableHead>
-                  <TableHead>Potential Uplift</TableHead>
-                  <TableHead className="min-w-[200px]">Key Recommendations</TableHead>
+                  <TableHead className="w-[100px]">ID Produktu</TableHead>
+                  <TableHead className="min-w-[300px]">Nazwa produktu</TableHead>
+                  <TableHead>Cena aktualna</TableHead>
+                  <TableHead>Cena rekomendowana</TableHead>
+                  <TableHead>Zmiana</TableHead>
+                  <TableHead>Ocena opisu</TableHead>
+                  <TableHead>Potencjał</TableHead>
+                  <TableHead className="min-w-[200px]">Rekomendacje</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -181,8 +371,8 @@ const SampleReport = () => {
                     <TableRow key={product.id}>
                       <TableCell className="font-mono text-sm">{product.id}</TableCell>
                       <TableCell className="font-medium">{product.title}</TableCell>
-                      <TableCell>${product.currentPrice}</TableCell>
-                      <TableCell className="font-semibold">${product.recommendedPrice}</TableCell>
+                      <TableCell>{product.currentPrice.toFixed(2)} zł</TableCell>
+                      <TableCell className="font-semibold">{product.recommendedPrice.toFixed(2)} zł</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1">
                           {getPriceChangeIcon(product.currentPrice, product.recommendedPrice)}
@@ -214,11 +404,11 @@ const SampleReport = () => {
               </TableBody>
             </Table>
           </div>
-          
+
           <div className="mt-4 text-center">
             <p className="text-sm text-muted-foreground">
-              Showing 20 of 100 products. 
-              <Button variant="link" className="px-2">View all products →</Button>
+              Wyświetlono 20 z 100 produktów.
+              <Button variant="link" className="px-2">Zobacz wszystkie produkty →</Button>
             </p>
           </div>
         </Card>
