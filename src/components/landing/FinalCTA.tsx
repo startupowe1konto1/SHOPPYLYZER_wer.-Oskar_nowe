@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useWaitlist } from '@/context/WaitlistContext';
 
 export const FinalCTA = () => {
   const navigate = useNavigate();

@@ -2,6 +2,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Check, X } from 'lucide-react';
+import { useWaitlist } from '@/context/WaitlistContext';
 
 const Feature = ({ included, text }: { included: boolean; text: string }) => (
   <li className="flex items-start gap-2 text-sm">
