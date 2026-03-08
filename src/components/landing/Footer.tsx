@@ -6,7 +6,9 @@ const scrollTo = (id: string) => {
   document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 };
 
-export const Footer = () => (
+export const Footer = () => {
+  const { openWaitlist } = useWaitlist();
+  return (
   <footer className="bg-foreground text-primary-foreground">
     <div className="container mx-auto px-4 py-16">
       <div className="grid md:grid-cols-4 gap-10">
