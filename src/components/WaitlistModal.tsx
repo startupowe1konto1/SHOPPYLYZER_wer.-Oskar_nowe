@@ -21,7 +21,7 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
       onClick={onClose}
     >
       <div
-        className="relative max-w-lg w-full mx-4 bg-white rounded-2xl shadow-2xl p-8 animate-in slide-in-from-bottom-4 fade-in duration-300"
+        className="relative max-w-lg w-full mx-4 bg-white rounded-2xl shadow-2xl p-8 overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         <button
