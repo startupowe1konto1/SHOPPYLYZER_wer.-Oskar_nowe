@@ -53,7 +53,7 @@ export const Pricing = () => {
             <Feature included text="Rekomendacje marżowe AI" />
             <Feature included text="Eksport CSV i PDF" />
           </ul>
-          <Button variant="cta" className="w-full">Wypróbuj 14 dni za darmo</Button>
+          <Button variant="cta" className="w-full" onClick={openWaitlist}>Wypróbuj 14 dni za darmo</Button>
         </Card>
 
         {/* Agencja */}
