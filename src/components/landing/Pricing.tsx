@@ -35,7 +35,7 @@ export const Pricing = () => {
             <Feature included={false} text="Alerty Slack" />
             <Feature included={false} text="Eksport PDF" />
           </ul>
-          <Button variant="outline" className="w-full">Zacznij za darmo</Button>
+          <Button variant="outline" className="w-full" onClick={openWaitlist}>Zacznij za darmo</Button>
         </Card>
 
         {/* Pro */}
