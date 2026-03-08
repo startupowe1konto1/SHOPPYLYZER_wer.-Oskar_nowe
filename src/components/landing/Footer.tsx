@@ -69,4 +69,5 @@ export const Footer = () => {
       <p className="text-center text-xs text-primary-foreground/50"><p className="text-center text-xs text-primary-foreground/50">© 2026 Shoppalyzer. Wszelkie prawa zastrzeżone.</p></p>
     </div>
   </footer>
-);
+  );
+};
