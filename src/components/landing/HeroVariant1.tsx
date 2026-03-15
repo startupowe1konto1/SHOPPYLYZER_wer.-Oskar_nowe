@@ -13,12 +13,12 @@ export const HeroVariant1 = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              📊 Dla sprzedawców na Allegro którzy chcą zarabiać więcej — nie pracować więcej
+              📊 Dla sprzedawców na Allegro, którzy chcą zarabiać więcej — nie pracować więcej
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-              <span style={{ color: '#163D5C' }}>Codziennie tracisz marżę,</span>
+              <span style={{ color: '#163D5C' }}>Codziennie tracisz marżę, bo nie wiesz</span>
               <br />
-              <span style={{ color: '#F0921C' }}>bo nie wiesz gdzie jej szukać.</span>
+              <span style={{ color: '#F0921C' }}>gdzie jej szukać.</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
               Shoppalyzer analizuje Twoją konkurencję na Allegro
