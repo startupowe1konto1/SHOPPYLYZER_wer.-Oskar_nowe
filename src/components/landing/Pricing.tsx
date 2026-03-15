@@ -49,7 +49,7 @@ export const Pricing = () => {
             <Feature included text="Rekomendacje marżowe AI" />
             <Feature included text="Eksport CSV i PDF" />
           </ul>
-          <Button variant="cta" className="w-full mt-auto" onClick={openWaitlist}>Wypróbuj 14 dni za darmo</Button>
+          <Button variant="cta" className="w-full mt-auto" onClick={openWaitlist}>Wypróbuj 3 dni za darmo</Button>
         </Card>
 
         {/* Agencja */}
@@ -67,7 +67,6 @@ export const Pricing = () => {
         </Card>
       </div>
       <p className="text-center text-sm text-muted-foreground mt-8">
-        Wszystkie plany zawierają 14-dniowy bezpłatny okres próbny. Bez karty kredytowej.
       </p>
     </div>
   </section>
