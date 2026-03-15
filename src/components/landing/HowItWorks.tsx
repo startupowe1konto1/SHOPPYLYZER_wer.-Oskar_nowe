@@ -41,9 +41,6 @@ export const HowItWorks = () => (
       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
         {steps.map((s, i) => (
           <div key={s.title} className="relative flex flex-col items-center text-center">
-            {i < steps.length - 1 && (
-              <div className="hidden md:block absolute top-12 left-[60%] w-[80%] border-t-2 border-dashed border-primary/20" />
-            )}
             <Card className="p-6 shadow-soft w-full">
               <div className="w-12 h-12 rounded-full bg-accent-brand/10 flex items-center justify-center text-2xl mx-auto mb-4">
                 {s.icon}
