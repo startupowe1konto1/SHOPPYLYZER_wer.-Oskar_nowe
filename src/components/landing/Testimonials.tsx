@@ -5,7 +5,7 @@ import { Star, Rocket } from 'lucide-react';
 const testimonials = [
   {
     initials: 'MK',
-    quote: '"To, co wyróżnia Shoppalyzer, to unikalne połączenie analizy trendów rynkowych z generatywnymi rekomendacjami AI. Narzędzie samo śledzi konkurencję na marketplace'ach i podpowiada mi, które SKU warto teraz promować, a które usunąć z oferty. Dzięki temu mam pewność, że moje decyzje cenowe są oparte na twardych danych, a nie na przeczuciach."',
+    quote: '"To, co wyróżnia Shoppalyzer, to unikalne połączenie analizy trendów rynkowych z generatywnymi rekomendacjami AI. Narzędzie samo śledzi konkurencję na marketplaceach i podpowiada mi, które SKU warto teraz promować, a które usunąć z oferty. Dzięki temu mam pewność, że moje decyzje cenowe są oparte na twardych danych, a nie na przeczuciach."',
     name: 'Marta K.',
     role: 'właścicielka sklepu modowego',
   },
