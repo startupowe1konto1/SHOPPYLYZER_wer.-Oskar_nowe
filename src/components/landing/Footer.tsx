@@ -17,7 +17,7 @@ export const Footer = () => {
           <img
   src="/shoppalyzer_2.png"
   alt="Shoppalyzer"
-  className="h-12 w-auto mb-4 brightness-0 invert cursor-pointer"
+  className="h-16 w-auto mb-4 brightness-0 invert cursor-pointer"
   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 />
           <p className="text-sm text-primary-foreground/70 mb-4">Inteligentna analiza rynku dla sprzedawców na Allegro.</p>
