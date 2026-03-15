@@ -24,7 +24,7 @@ export const HeroVariant1 = () => {
               Shoppalyzer analizuje Twoją konkurencję na Allegro
               i pokazuje dokładnie gdzie zostawiasz pieniądze na stole —
               i co zrobić żeby jutro zarobić więcej.
-              Bez Excela. Bez godzin przeklikiwania.
+              Bez Excela. Bez godzin klikania.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="cta" size="lg" onClick={openWaitlist}>
