@@ -20,7 +20,7 @@ export const Footer = () => {
   className="h-16 w-auto mb-4 brightness-0 invert cursor-pointer"
   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 />
-          <p className="text-sm text-primary-foreground/70 mb-4">Inteligentna analiza rynku dla sprzedawców na Allegro.</p>
+          <p className="text-sm text-primary-foreground/70 mb-4">Inteligentna analiza rynku dla sprzedawców Allegro.</p>
           <div className="flex gap-3">
             <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground"><Linkedin className="h-7 w-7" /></a>
             <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground"><Facebook className="h-7 w-7" /></a>
@@ -32,9 +32,9 @@ export const Footer = () => {
           <h4 className="font-semibold mb-4 text-sm">Produkt</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/70">
             <li><button onClick={() => scrollTo('#korzysci')} className="hover:text-primary-foreground">Korzyści</button></li>
-            <li><button onClick={() => scrollTo('#jak-to-dziala')} className="hover:text-primary-foreground">Jak to działa</button></li>
+            <li><button onClick={() => scrollTo('#jak-to-dziala')} className="hover:text-primary-foreground">Jak to działa?</button></li>
             <li><button onClick={() => scrollTo('#cennik')} className="hover:text-primary-foreground">Cennik</button></li>
-            <li><a href="/sample-report" className="hover:text-primary-foreground">Przykładowy raport</a></li>
+            <li><a href="/sample-report" className="hover:text-primary-foreground">Zobacz przykładowy raport</a></li>
           </ul>
         </div>
 
