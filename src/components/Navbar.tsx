@@ -31,12 +31,10 @@ export const Navbar = () => {
         el.scrollIntoView({ behavior: 'smooth' });
       } else {
         navigate('/');
-        setTimeout(() => document.querySelector()?.scrollIntoView({ behavior: 'smooth' }), 100);
+        setTimeout(() => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }), 100);
       }
     }
   };
-
-  const logoStyle = { filter: 'drop-shadow(0px 1px 2px rgba(30, 95, 142, 0.15))' };
 
   return (
     <nav
@@ -45,11 +43,11 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between" style={{ minHeight: '108px', alignItems: 'center' }}>
-        <a
-href="/"
-  className="flex items-center"
-  onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
->
+        
+          href="/"
+          className="flex items-center"
+          onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        >
           <img
             src="/shoppalyzer_2.png"
             alt="Shoppalyzer"
@@ -62,7 +60,6 @@ href="/"
             }}
           />
         </a>
-
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
@@ -75,19 +72,16 @@ href="/"
             </button>
           ))}
         </div>
-
         <div className="hidden md:block">
           <Button variant="cta" size="sm" onClick={openWaitlist}>
             Wypróbuj za darmo
           </Button>
         </div>
-
         {/* Mobile toggle */}
         <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
-
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden border-t bg-background px-4 pb-4 space-y-3">
