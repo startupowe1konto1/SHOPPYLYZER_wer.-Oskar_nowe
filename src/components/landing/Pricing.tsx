@@ -20,13 +20,13 @@ export const Pricing = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Prosty cennik. Bez niespodzianek.</h2>
         <p className="text-lg text-muted-foreground">Zacznij za darmo. Skaluj swój biznes z nami.</p>
       </div>
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
+      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
         {/* Starter */}
-        <Card className="p-6 shadow-soft">
-          <h3 className="font-bold text-xl text-foreground mb-1">Starter</h3>
+        <Card className="p-6 shadow-soft flex flex-col h-full">
+          <h3 className="font-bold text-xl text-foreground mb-1">Agencja</h3>
           <div className="text-3xl font-bold text-foreground mb-1">0 <span className="text-base font-normal text-muted-foreground">PLN</span></div>
           <p className="text-sm text-muted-foreground mb-6">Promocja na pierwsze 2 tygodnie współpracy</p>
-          <ul className="space-y-3 mb-8">
+          <ul className="space-y-3 mb-8 flex-1">
             <Feature included text="Do 100 SKU" />
             <Feature included text="Analiza konkurencji na Allegro" />
             <Feature included text="Tygodniowy raport rekomendacji" />
@@ -37,7 +37,7 @@ export const Pricing = () => {
         </Card>
 
         {/* Pro */}
-        <Card className="p-6 shadow-medium border-primary border-2 relative scale-[1.02]">
+        <Card className="p-6 shadow-medium border-primary border-2 relative scale-[1.02] flex flex-col h-full">
           <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent-brand text-accent-brand-foreground border-0">Najpopularniejszy</Badge>
           <h3 className="font-bold text-xl text-foreground mb-1">Pro</h3>
           <div className="text-3xl font-bold text-foreground mb-1">89 <span className="text-base font-normal text-muted-foreground">PLN/mies.</span></div>
