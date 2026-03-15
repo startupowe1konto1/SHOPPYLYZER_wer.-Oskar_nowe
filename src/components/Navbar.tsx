@@ -31,7 +31,7 @@ export const Navbar = () => {
         el.scrollIntoView({ behavior: 'smooth' });
       } else {
         navigate('/');
-        setTimeout(() => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }), 100);
+        setTimeout(() => document.querySelector()?.scrollIntoView({ behavior: 'smooth' }), 100);
       }
     }
   };
@@ -46,10 +46,10 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between" style={{ minHeight: '108px', alignItems: 'center' }}>
         <a
-          href="/"
-          className="flex items-center"
-          onClick={(e) => { e.preventDefault(); navigate('/'); }}
-        >
+href="/"
+  className="flex items-center"
+  onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+>
           <img
             src="/shoppalyzer_2.png"
             alt="Shoppalyzer"
