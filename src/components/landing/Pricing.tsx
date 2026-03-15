@@ -24,7 +24,7 @@ export const Pricing = () => {
         {/* Starter */}
         <Card className="p-6 shadow-soft">
           <h3 className="font-bold text-xl text-foreground mb-1">Starter</h3>
-          <div className="text-3xl font-bold text-foreground mb-1">0 <span className="text-base font-normal text-muted-foreground"></span></div>
+          <div className="text-3xl font-bold text-foreground mb-1">0 <span className="text-base font-normal text-muted-foreground">PLN</span></div>
           <p className="text-sm text-muted-foreground mb-6">Promocja na pierwsze 2 tygodnie współpracy</p>
           <ul className="space-y-3 mb-8">
             <Feature included text="Do 100 SKU" />
