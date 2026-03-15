@@ -19,7 +19,7 @@ const testimonials = [
     initials: 'AN',
     quote: 'Jako właścicielka niewielkiego sklepu ze sprzętem muzycznym zawsze miałem problem z narzędziami, które były zbyt skomplikowane, albo zbyt drogie. Shoppalyzer to zmienił – za rozsądne pieniądze dostaję proste rekomendacje, które z łatwością wdrażam w życie. To nie jest tylko monitoring, to mój osobisty doradca',
     name: 'Anna N.',
-    role: 'konsultantka e-commerce dla MŚP',
+    role: 'właścicielka sklepu ze sprzętem muzycznym',
   },
 ];
 
