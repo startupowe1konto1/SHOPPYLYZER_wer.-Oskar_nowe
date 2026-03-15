@@ -7,7 +7,7 @@ const testimonials = [
     initials: 'MK',
     quote: 'Miałam 3 sprzedawców podpiętych pod moje EAN-y i nie wiedziałam o tym przez 2 tygodnie. Teraz dostaję alert od razu. Odzyskałam marżę na 18 produktach w pierwszym tygodniu.',
     name: 'Marta K.',
-    role: 'właścicielka sklepu modowego ',
+    role: 'właścicielka sklepu modowego',
   },
   {
     initials: 'PW',
