@@ -24,16 +24,14 @@ export const Pricing = () => {
         {/* Starter */}
         <Card className="p-6 shadow-soft">
           <h3 className="font-bold text-xl text-foreground mb-1">Starter</h3>
-          <div className="text-3xl font-bold text-foreground mb-1">0 <span className="text-base font-normal text-muted-foreground">PLN/mies.</span></div>
-          <p className="text-sm text-muted-foreground mb-6">Dla małych sklepów stawiających pierwsze kroki</p>
+          <div className="text-3xl font-bold text-foreground mb-1">0 <span className="text-base font-normal text-muted-foreground"></span></div>
+          <p className="text-sm text-muted-foreground mb-6">Promocja na pierwsze 2 tygodnie współpracy</p>
           <ul className="space-y-3 mb-8">
             <Feature included text="Do 100 SKU" />
             <Feature included text="Analiza konkurencji na Allegro" />
             <Feature included text="Tygodniowy raport rekomendacji" />
             <Feature included text="Alerty e-mail" />
-            <Feature included={false} text="Wykrywacz pasożytów EAN" />
-            <Feature included={false} text="Alerty Slack" />
-            <Feature included={false} text="Eksport PDF" />
+            <Feature included={false} text="Raport PDF/CSV" />
           </ul>
           <Button variant="outline" className="w-full" onClick={openWaitlist}>Zacznij za darmo</Button>
         </Card>
@@ -42,12 +40,10 @@ export const Pricing = () => {
         <Card className="p-6 shadow-medium border-primary border-2 relative scale-[1.02]">
           <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent-brand text-accent-brand-foreground border-0">Najpopularniejszy</Badge>
           <h3 className="font-bold text-xl text-foreground mb-1">Pro</h3>
-          <div className="text-3xl font-bold text-foreground mb-1">69 <span className="text-base font-normal text-muted-foreground">PLN/mies.</span></div>
+          <div className="text-3xl font-bold text-foreground mb-1">89 <span className="text-base font-normal text-muted-foreground">PLN/mies.</span></div>
           <p className="text-sm text-muted-foreground mb-6">Dla rosnących sklepów, które chcą działać na danych</p>
           <ul className="space-y-3 mb-8">
             <Feature included text="Do 1000 SKU" />
-            <Feature included text="Wszystko ze Startera" />
-            <Feature included text="Wykrywacz pasożytów EAN" />
             <Feature included text="Codzienny raport o 9:00" />
             <Feature included text="Alerty Slack" />
             <Feature included text="Rekomendacje marżowe AI" />
@@ -59,14 +55,12 @@ export const Pricing = () => {
         {/* Agencja */}
         <Card className="p-6 shadow-soft">
           <h3 className="font-bold text-xl text-foreground mb-1">Agencja</h3>
-          <div className="text-3xl font-bold text-foreground mb-1">99 <span className="text-base font-normal text-muted-foreground">PLN/mies.</span></div>
+          <div className="text-3xl font-bold text-foreground mb-1">199 <span className="text-base font-normal text-muted-foreground">PLN/mies.</span></div>
           <p className="text-sm text-muted-foreground mb-6">Dla konsultantów i menedżerów wielu sklepów</p>
           <ul className="space-y-3 mb-8">
             <Feature included text="Do 5000 SKU" />
             <Feature included text="Wszystko z Pro" />
-            <Feature included text="Raporty PDF z własnym logo (white-label)" />
             <Feature included text="Panel wielu klientów" />
-            <Feature included text="Dostęp do API" />
             <Feature included text="Wsparcie priorytetowe" />
           </ul>
           <Button variant="outline" className="w-full">Skontaktuj się</Button>
