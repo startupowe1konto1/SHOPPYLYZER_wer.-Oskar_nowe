@@ -28,14 +28,14 @@ export const HeroVariant1 = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="cta" size="lg" onClick={openWaitlist}>
-                Sprawdź za darmo ile tracisz →
+                Sprawdź za darmo i zyskaj →
               </Button>
               <Button variant="outline" size="lg" onClick={() => navigate('/sample-report')}>
                 Zobacz przykładowy raport
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-5">
-              Bez karty kredytowej  •  Pierwsze 100 SKU gratis  •  Wyniki już po pierwszym raporcie
+              Bez karty kredytowej  •  Pierwsze 2 tygodnie całkowicie gratis  •  Wyniki już po pierwszym raporcie
             </p>
           </div>
           <div className="hidden lg:block">
