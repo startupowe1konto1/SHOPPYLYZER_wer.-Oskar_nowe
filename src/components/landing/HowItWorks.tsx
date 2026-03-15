@@ -1,9 +1,34 @@
 import { Card } from '@/components/ui/card';
-
 const steps = [
-  { icon: '📥', title: 'Wgraj swoje produkty', desc: 'Wczytaj plik CSV lub połącz się przez API WooCommerce / Shopify. Do 100 SKU zupełnie za darmo.' },
-  { icon: '🔍', title: 'Analizujemy rynek za Ciebie', desc: 'Shoppalyzer automatycznie identyfikuje Twoją konkurencję na Allegro i zbiera dane o cenach, pozycjach i zapasach.' },
-  { icon: '📊', title: 'Dostajesz gotowy raport', desc: 'Konkretne rekomendacje: co przepricować, co promować, czego się pozbyć. Eksport do CSV lub PDF jednym kliknięciem.' },
+  {
+    icon: '📥',
+    title: 'Wgraj swoje produkty',
+    desc: null,
+    customDesc: (
+      <p className="text-muted-foreground text-sm leading-relaxed">
+        Wczytaj plik CSV zawierający dane SKU Twojego sklepu. Instrukcja jak to zrobić{' '}
+        
+          href="https://allegro.pl/pomoc/aktualnosci/pobierz-plik-z-ofertami-latwiej-zarzadzaj-sprzedaza-5Lna5EqRxSZ?srsltid=AfmBOoruKM26zkG_dpXYsNNqHujkLx67ZssI7992cQEs523pTz6Dy97p"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            background: '#F0921C',
+            color: 'white',
+            fontWeight: 700,
+            fontSize: '12px',
+            padding: '3px 10px',
+            borderRadius: '6px',
+            textDecoration: 'none',
+          }}
+        >
+          Instrukcja pobierania
+        </a>
+      </p>
+    ),
+  },
+  { icon: '🔍', title: 'Analizujemy rynek za Ciebie', desc: 'Shoppalyzer automatycznie identyfikuje Twoją konkurencję na Allegro i zbiera dane o cenach, pozycjach i zapasach.', customDesc: null },
+  { icon: '📊', title: 'Dostajesz gotowy raport', desc: 'Konkretne rekomendacje: na którym produkcie zmienić cenę, co promować, czego się pozbyć. Eksport do CSV lub PDF jednym kliknięciem.', customDesc: null },
 ];
 
 export const HowItWorks = () => (
@@ -25,7 +50,7 @@ export const HowItWorks = () => (
               </div>
               <div className="text-xs font-bold text-accent-brand mb-2">Krok {i + 1}</div>
               <h3 className="font-semibold text-lg text-foreground mb-2">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+              {s.customDesc ? s.customDesc : <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>}
             </Card>
           </div>
         ))}
