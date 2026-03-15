@@ -1,25 +1,25 @@
 import { Card } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Star } from 'lucide-react';
+import { Star, Rocket } from 'lucide-react';
 
 const testimonials = [
   {
     initials: 'MK',
     quote: 'Miałam 3 sprzedawców podpiętych pod moje EAN-y i nie wiedziałam o tym przez 2 tygodnie. Teraz dostaję alert od razu. Odzyskałam marżę na 18 produktach w pierwszym tygodniu.',
     name: 'Marta K.',
-    role: 'właścicielka sklepu, ModaPolska.pl',
+    role: 'właścicielka sklepu modowego',
   },
   {
     initials: 'PW',
     quote: 'Wcześniej 6 godzin w tygodniu w Excelu. Teraz otwieram raport przy kawie i wiem dokładnie co zrobić. Shoppalyzer zwrócił się w pierwszym miesiącu.',
     name: 'Piotr W.',
-    role: 'e-commerce manager, SportZone',
+    role: 'e-commerce manager sklepu ze sprzętem sportowym',
   },
   {
     initials: 'AN',
-    quote: 'Raporty PDF z własnym logo wysyłam klientom co tydzień. Myślą, że mam za sobą cały dział analiz. Oszczędzam 7–8 godzin tygodniowo.',
+    quote: 'Raporty PDF z własnym logo wysyłam klientom co tydzień. Podnosi to rzetelność raportów, a ja oszczędzam 7–8 godzin tygodniowo.',
     name: 'Anna N.',
-    role: 'konsultantka e-commerce',
+    role: 'konsultantka e-commerce dla MŚP',
   },
 ];
 
@@ -36,7 +36,10 @@ export const Testimonials = () => (
     <div className="container mx-auto px-4">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Sprzedawcy na Allegro już to wiedzą</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Dołącz do setek sklepów, które podjęły mądrzejsze decyzje dzięki Shoppalyzerowi</p>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto flex items-center justify-center gap-2">
+          <Rocket className="h-5 w-5 text-accent-brand shrink-0" />
+          Dołącz do setek sklepów, które podjęły mądrzejsze decyzje dzięki Shoppalyzerowi
+        </p>
       </div>
       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {testimonials.map((t) => (
