@@ -36,6 +36,12 @@ export const Navbar = () => {
     }
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <nav
       className={`sticky top-0 z-50 bg-background border-b border-primary/20 transition-shadow duration-300 ${
@@ -43,11 +49,7 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between" style={{ minHeight: '108px', alignItems: 'center' }}>
-        
-          href="/"
-          className="flex items-center"
-          onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo(0, 0); }}
-        >
+        <a href="/" className="flex items-center" onClick={handleLogoClick}>
           <img
             src="/shoppalyzer_2.png"
             alt="Shoppalyzer"
@@ -60,7 +62,6 @@ export const Navbar = () => {
             }}
           />
         </a>
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
@@ -77,12 +78,10 @@ export const Navbar = () => {
             Wypróbuj za darmo
           </Button>
         </div>
-        {/* Mobile toggle */}
         <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden border-t bg-background px-4 pb-4 space-y-3">
           {navLinks.map((link) => (
