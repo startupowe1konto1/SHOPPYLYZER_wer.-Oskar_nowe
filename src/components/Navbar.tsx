@@ -44,7 +44,7 @@ export const Navbar = () => {
         scrolled ? 'shadow-[0_2px_12px_-2px_hsl(207_58%_23%/0.15)]' : ''
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between" style={{ minHeight: '88px', alignItems: 'center' }}>
+      <div className="container mx-auto px-4 flex items-center justify-between" style={{ minHeight: '108px', alignItems: 'center' }}>
         <a
           href="/"
           className="flex items-center"
@@ -54,7 +54,7 @@ export const Navbar = () => {
             src="/shoppalyzer_2.png"
             alt="Shoppalyzer"
             style={{
-              height: '72px',
+              height: '108px',
               width: 'auto',
               objectFit: 'contain' as const,
               display: 'block',
