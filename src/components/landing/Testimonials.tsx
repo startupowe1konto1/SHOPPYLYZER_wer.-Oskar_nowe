@@ -5,19 +5,19 @@ import { Star, Rocket } from 'lucide-react';
 const testimonials = [
   {
     initials: 'MK',
-    quote: 'Miałam 3 sprzedawców podpiętych pod moje EAN-y i nie wiedziałam o tym przez 2 tygodnie. Teraz dostaję alert od razu. Odzyskałam marżę na 18 produktach w pierwszym tygodniu.',
+    quote: '"To, co wyróżnia Shoppalyzer, to unikalne połączenie analizy trendów rynkowych z generatywnymi rekomendacjami AI. Narzędzie samo śledzi konkurencję na marketplace'ach i podpowiada mi, które SKU warto teraz promować, a które usunąć z oferty. Dzięki temu mam pewność, że moje decyzje cenowe są oparte na twardych danych, a nie na przeczuciach."',
     name: 'Marta K.',
     role: 'właścicielka sklepu modowego',
   },
   {
     initials: 'PW',
-    quote: 'Wcześniej 6 godzin w tygodniu w Excelu. Teraz otwieram raport przy kawie i wiem dokładnie co zrobić. Shoppalyzer zwrócił się w pierwszym miesiącu.',
+    quote: 'Przed poznaniem Shoppalyzera spędzałem kilka godzin w tygodniu w Excelu oraz na ofertach konkurencji. Teraz otwieram raport przy porannej kawie i wiem co zrobić. Shoppalyzer zwrócił się wielokrotnie.',
     name: 'Piotr W.',
     role: 'e-commerce manager sklepu ze sprzętem sportowym',
   },
   {
     initials: 'AN',
-    quote: 'Raporty PDF z własnym logo wysyłam klientom co tydzień. Podnosi to rzetelność raportów, a ja oszczędzam 7–8 godzin tygodniowo.',
+    quote: '"Jako właścicielka niewielkiego sklepu ze sprzętem muzycznym zawsze miałem problem z narzędziami, które były zbyt skomplikowane, albo zbyt drogie. Shoppalyzer to zmienił – za rozsądne pieniądze dostaję proste rekomendacje, które z łatwością wdrażam w życie. To nie jest tylko monitoring, to mój osobisty doradca',
     name: 'Anna N.',
     role: 'konsultantka e-commerce dla MŚP',
   },
