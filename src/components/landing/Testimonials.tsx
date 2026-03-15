@@ -5,7 +5,7 @@ import { Star, Rocket } from 'lucide-react';
 const testimonials = [
   {
     initials: 'MK',
-    quote: '"To, co wyróżnia Shoppalyzer, to unikalne połączenie analizy trendów rynkowych z generatywnymi rekomendacjami AI. Narzędzie samo śledzi konkurencję na marketplaceach i podpowiada mi, które SKU warto teraz promować, a które usunąć z oferty. Dzięki temu mam pewność, że moje decyzje cenowe są oparte na twardych danych, a nie na przeczuciach."',
+    quote: 'To, co wyróżnia Shoppalyzer, to unikalne połączenie analizy trendów rynkowych z generatywnymi rekomendacjami AI. Narzędzie samo śledzi konkurencję na marketplaceach i podpowiada mi, które SKU warto teraz promować, a które usunąć z oferty. Dzięki temu mam pewność, że moje decyzje cenowe są oparte na twardych danych, a nie na przeczuciach.',
     name: 'Marta K.',
     role: 'właścicielka sklepu modowego',
   },
@@ -13,11 +13,11 @@ const testimonials = [
     initials: 'PW',
     quote: 'Przed poznaniem Shoppalyzera spędzałem kilka godzin w tygodniu w Excelu oraz na ofertach konkurencji. Teraz otwieram raport przy porannej kawie i wiem co zrobić. Shoppalyzer zwrócił się wielokrotnie.',
     name: 'Piotr W.',
-    role: 'e-commerce manager sklepu ze sprzętem sportowym',
+    role: 'manager sklepu ze sprzętem sportowym',
   },
   {
     initials: 'AN',
-    quote: '"Jako właścicielka niewielkiego sklepu ze sprzętem muzycznym zawsze miałem problem z narzędziami, które były zbyt skomplikowane, albo zbyt drogie. Shoppalyzer to zmienił – za rozsądne pieniądze dostaję proste rekomendacje, które z łatwością wdrażam w życie. To nie jest tylko monitoring, to mój osobisty doradca',
+    quote: 'Jako właścicielka niewielkiego sklepu ze sprzętem muzycznym zawsze miałem problem z narzędziami, które były zbyt skomplikowane, albo zbyt drogie. Shoppalyzer to zmienił – za rozsądne pieniądze dostaję proste rekomendacje, które z łatwością wdrażam w życie. To nie jest tylko monitoring, to mój osobisty doradca',
     name: 'Anna N.',
     role: 'konsultantka e-commerce dla MŚP',
   },
@@ -43,10 +43,10 @@ export const Testimonials = () => (
       </div>
       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {testimonials.map((t) => (
-          <Card key={t.initials} className="p-6 shadow-soft">
+          <Card key={t.initials} className="p-6 shadow-soft flex flex-col h-full">
             <Stars />
-            <p className="text-sm text-foreground leading-relaxed mb-6 italic">"{t.quote}"</p>
-            <div className="flex items-center gap-3">
+            <p className="text-sm text-foreground leading-relaxed mb-6 italic flex-1">"{t.quote}"</p>
+            <div className="flex items-center gap-3 mt-auto">
               <Avatar className="h-10 w-10 bg-primary">
                 <AvatarFallback className="bg-primary text-primary-foreground text-sm font-bold">{t.initials}</AvatarFallback>
               </Avatar>
