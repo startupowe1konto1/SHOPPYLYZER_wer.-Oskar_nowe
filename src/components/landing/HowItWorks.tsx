@@ -26,7 +26,7 @@ export const HowItWorks = () => (
               <h3 className="font-semibold text-lg text-foreground mb-2">{s.title}</h3>
               {i === 0 ? (
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  {'Wczytaj plik CSV zawierający dane SKU Twojego sklepu. Instrukcja jak to zrobić '}
+                  {'Wczytaj plik CSV zawierający dane SKU Twojego sklepu. Instrukcja jak to zrobić: '}
                   <a href={allegroUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-accent-brand text-white font-bold text-xs px-2.5 py-1 rounded-md no-underline">
                     Instrukcja pobierania
                   </a>
