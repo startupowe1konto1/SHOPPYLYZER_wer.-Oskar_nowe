@@ -5,7 +5,6 @@ const benefits = [
   { icon: '📈', title: 'Gdzie podnieść marżę', desc: 'Nasz algorytm wskazuje aukcje, gdzie konkurencja wyprzedała zapas — to Twoja szansa na wyższą cenę bez utraty sprzedaży.' },
   { icon: '🗑️', title: 'Co wyciąć z asortymentu', desc: 'Zidentyfikuj produkty, które rotują słabo i zjadają Twój budżet reklamowy. Zasada Pareto w praktyce.' },
   { icon: '📄', title: 'Raporty PDF dla klientów', desc: 'Konsultanci i agencje eksportują raporty pod własną marką w jednym kliknięciu. Bez Excela, bez ręcznej roboty.' },
-  { icon: '🔔', title: 'Alerty na e-mail lub Slack', desc: 'Powiadomienie od razu gdy coś ważnego zmieni się w Twojej kategorii. Żadna okazja Cię nie ominie.' },
 ];
 
 export const BenefitsBento = () => (
