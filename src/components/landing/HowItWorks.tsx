@@ -1,10 +1,12 @@
 import { Card } from '@/components/ui/card';
 
 const steps = [
-  { icon: '📥', title: 'Wgraj swoje produkty' },
+  { icon: '📥', title: 'Wgraj swoje produkty', desc: '' },
   { icon: '🔍', title: 'Analizujemy rynek za Ciebie', desc: 'Shoppalyzer automatycznie identyfikuje Twoją konkurencję na Allegro i zbiera dane o cenach, pozycjach i zapasach.' },
   { icon: '📊', title: 'Dostajesz gotowy raport', desc: 'Konkretne rekomendacje: na którym produkcie zmienić cenę, co promować, czego się pozbyć. Eksport do CSV lub PDF jednym kliknięciem.' },
 ];
+
+const allegroUrl = "https://allegro.pl/pomoc/aktualnosci/pobierz-plik-z-ofertami-latwiej-zarzadzaj-sprzedaza-5Lna5EqRxSZ?srsltid=AfmBOoruKM26zkG_dpXYsNNqHujkLx67ZssI7992cQEs523pTz6Dy97p";
 
 export const HowItWorks = () => (
   <section id="jak-to-dziala" className="py-20 bg-muted/30">
@@ -24,22 +26,8 @@ export const HowItWorks = () => (
               <h3 className="font-semibold text-lg text-foreground mb-2">{s.title}</h3>
               {i === 0 ? (
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Wczytaj plik CSV zawierający dane SKU Twojego sklepu. Instrukcja jak to zrobić{' '}
-                  
-                    href="https://allegro.pl/pomoc/aktualnosci/pobierz-plik-z-ofertami-latwiej-zarzadzaj-sprzedaza-5Lna5EqRxSZ?srsltid=AfmBOoruKM26zkG_dpXYsNNqHujkLx67ZssI7992cQEs523pTz6Dy97p"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: 'inline-block',
-                      background: '#F0921C',
-                      color: 'white',
-                      fontWeight: 700,
-                      fontSize: '12px',
-                      padding: '3px 10px',
-                      borderRadius: '6px',
-                      textDecoration: 'none',
-                    }}
-                  >
+                  {'Wczytaj plik CSV zawierający dane SKU Twojego sklepu. Instrukcja jak to zrobić '}
+                  <a href={allegroUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-accent-brand text-white font-bold text-xs px-2.5 py-1 rounded-md no-underline">
                     Instrukcja pobierania
                   </a>
                 </p>
