@@ -46,7 +46,7 @@ export const Navbar = () => {
         
           href="/"
           className="flex items-center"
-          onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo(0, 0); }}
         >
           <img
             src="/shoppalyzer_2.png"
