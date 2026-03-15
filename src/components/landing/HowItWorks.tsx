@@ -15,10 +15,10 @@ export const HowItWorks = () => (
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Gotowy raport w 3 prostych krokach</h2>
         <p className="text-lg text-muted-foreground">Zero konfiguracji technicznej. Zero developera.</p>
       </div>
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
+<div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative items-stretch">
         {steps.map((s, i) => (
           <div key={s.title} className="relative flex flex-col items-center text-center">
-            <Card className="p-6 shadow-soft w-full">
+            <Card className="p-6 shadow-soft w-full h-full">
               <div className="w-12 h-12 rounded-full bg-accent-brand/10 flex items-center justify-center text-2xl mx-auto mb-4">
                 {s.icon}
               </div>
