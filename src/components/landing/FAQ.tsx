@@ -6,7 +6,7 @@ const faqs = [
   { q: 'Czym różni się Shoppalyzer od monitorowania cen?', a: 'Narzędzia do monitorowania cen pokazują tylko liczby. Shoppalyzer analizuje dane i daje Państwu konkretne rekomendacje: na którym produkcie zmienić cenę, co promować, czego się pozbyć.' },
   { q: 'Czy mogę zrezygnować w dowolnym momencie?', a: 'Tak. Żadnych długoterminowych umów. Anulujesz subskrypcję kiedy chcesz a subskrybcja zakończy się po wygaśnięciu trwającego okresu rozrachunkowego.' },
   { q: 'Jestem konsultantem z wieloma klientami. Czy to zadziała?', a: 'Tak — plan Agencja daje Ci panel wielu klientów oraz raporty PDF z własnym logo, które możesz wysyłać klientom pod swoją marką.' },
-  { q: 'Ile czasu zajmuje konfiguracja?', a: 'Mniej niż 5 minut. Wczytaj CSV z produktami, a nasze narzędzie przeprowadzi dogłębną analizę za Ciebie. Zero technikaliów.' },
+  { q: 'Ile czasu zajmuje konfiguracja?', a: 'Mniej niż 5 minut. Wczytaj CSV z produktami, a nasze narzędzie przeprowadzi dogłębną analizę za Ciebie. Zero technikaliów. ' },
 ];
 
 export const FAQ = () => (
