@@ -28,7 +28,7 @@ export const HeroVariant1 = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="cta" size="lg" onClick={openWaitlist}>
-                Sprawdź za darmo i zyskaj →
+                Sprawdź za darmo i zyskaj → 
               </Button>
               <Button variant="outline" size="lg" onClick={() => navigate('/sample-report')}>
                 Zobacz przykładowy raport
