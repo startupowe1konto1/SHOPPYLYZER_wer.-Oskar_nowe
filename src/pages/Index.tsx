@@ -10,13 +10,10 @@ import { Pricing } from '@/components/landing/Pricing';
 import { Testimonials } from '@/components/landing/Testimonials';
 import { FAQ } from '@/components/landing/FAQ';
 import { FinalCTA } from '@/components/landing/FinalCTA';
-import { Footer } from '@/components/landing/Footer';
-import { CookieConsent } from '@/components/CookieConsent';
 
 const Index = () => {
   const [searchParams] = useSearchParams();
   const variant = searchParams.get('v') || '1';
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -28,8 +25,6 @@ const Index = () => {
       <Testimonials />
       <FAQ />
       <FinalCTA />
-<Footer />
-      <CookieConsent />
     </div>
   );
 };
