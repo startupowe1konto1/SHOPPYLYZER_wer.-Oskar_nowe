@@ -42,9 +42,9 @@ export const Footer = () => {
         <div>
           <h4 className="font-semibold mb-4 text-sm">Prawo</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/70">
-            <li><a href="#" className="hover:text-primary-foreground">Polityka prywatności</a></li>
-            <li><a href="#" className="hover:text-primary-foreground">Regulamin</a></li>
-            <li><a href="#" className="hover:text-primary-foreground">Polityka cookies</a></li>
+<li><button onClick={() => navigate('/polityka-prywatnosci')} className="hover:text-primary-foreground">Polityka prywatności</button></li>
+            <li><button onClick={() => navigate('/regulamin')} className="hover:text-primary-foreground">Regulamin</button></li>
+            <li><button onClick={() => navigate('/polityka-cookies')} className="hover:text-primary-foreground">Polityka cookies</button></li>
             <li><a href="#" className="hover:text-primary-foreground">Kontakt</a></li>
           </ul>
         </div>
