@@ -22,7 +22,6 @@ const PolitykaCookies = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
       <div style={{ background: 'linear-gradient(135deg, #1E5F8E, #163D5C)' }} className="py-12 px-4">
         <div className="container mx-auto max-w-4xl">
           <button
@@ -44,7 +43,6 @@ const PolitykaCookies = () => {
         </div>
       </div>
 
-      {/* Highlight bar */}
       <div style={{ background: '#F0921C' }} className="py-3 px-4">
         <div className="container mx-auto max-w-4xl">
           <p className="text-white text-sm font-medium text-center">
@@ -61,7 +59,6 @@ const PolitykaCookies = () => {
           </p>
         </Section>
 
-        {/* Cele cookies — karty */}
         <section className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: '#e5f3ff' }}>
@@ -91,7 +88,6 @@ const PolitykaCookies = () => {
           </div>
         </section>
 
-        {/* Czas przechowywania */}
         <section className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: '#e5f3ff' }}>
@@ -113,7 +109,6 @@ const PolitykaCookies = () => {
           </div>
         </section>
 
-        {/* Podmioty trzecie */}
         <section className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: '#e5f3ff' }}>
@@ -122,7 +117,58 @@ const PolitykaCookies = () => {
             <h2 className="text-xl font-bold" style={{ color: '#1E5F8E' }}>4. Pliki cookies podmiotów trzecich</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-4 ml-1">
-            {[
-              { title: 'Bubble.io', desc: 'Nasz dashboard, z którym bezpośrednio wchodzisz w interakcję, jest zbudowany na platformie Bubble.io. Platforma ta wykorzystuje własne pliki techniczne i analityczne niezbędne do prawidłowego wyświetlania interfejsu oraz obsługi logiki strony.', icon: '🔵' },
-              { title: 'Stripe', desc: 'W celu umożliwienia bezpiecznego procesowania płatności subskrypcyjnych, zintegrowaliśmy platformę z operatorem Stripe. Stripe stosuje własne pliki cookies w celu weryfikacji tożsamości, zapobiegania nadużyciom finansowym oraz obsługi płatności.', icon: '💜' },
-              { title: 'Gemini (Google)', desc: 'Wykorzystujemy zaawansowane modele językowe Gemini do analizowania danych rynkowych i generowania rekomendacji. Integracja z infrastrukturą Google może wiązać się ze stosowaniem technicznych plików cookies służących autoryzacji
+            <div className="rounded-xl p-5 border" style={{ borderColor: '#e5f3ff', background: '#f8fbff' }}>
+              <div className="text-2xl mb-2">🔵</div>
+              <h3 className="font-bold text-sm mb-1" style={{ color: '#1E5F8E' }}>Bubble.io</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">Nasz dashboard, z którym bezpośrednio wchodzisz w interakcję, jest zbudowany na platformie Bubble.io. Platforma ta wykorzystuje własne pliki techniczne i analityczne niezbędne do prawidłowego wyświetlania interfejsu oraz obsługi logiki strony.</p>
+            </div>
+            <div className="rounded-xl p-5 border" style={{ borderColor: '#e5f3ff', background: '#f8fbff' }}>
+              <div className="text-2xl mb-2">💜</div>
+              <h3 className="font-bold text-sm mb-1" style={{ color: '#1E5F8E' }}>Stripe</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">W celu umożliwienia bezpiecznego procesowania płatności subskrypcyjnych, zintegrowaliśmy platformę z operatorem Stripe. Stripe stosuje własne pliki cookies w celu weryfikacji tożsamości, zapobiegania nadużyciom finansowym oraz obsługi płatności.</p>
+            </div>
+            <div className="rounded-xl p-5 border" style={{ borderColor: '#e5f3ff', background: '#f8fbff' }}>
+              <div className="text-2xl mb-2">🤖</div>
+              <h3 className="font-bold text-sm mb-1" style={{ color: '#1E5F8E' }}>Gemini (Google)</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">Wykorzystujemy zaawansowane modele językowe Gemini do analizowania danych rynkowych i generowania rekomendacji. Integracja z infrastrukturą Google może wiązać się ze stosowaniem technicznych plików cookies służących autoryzacji zapytań i bezpieczeństwu danych.</p>
+            </div>
+            <div className="rounded-xl p-5 border" style={{ borderColor: '#e5f3ff', background: '#f8fbff' }}>
+              <div className="text-2xl mb-2">☁️</div>
+              <h3 className="font-bold text-sm mb-1" style={{ color: '#1E5F8E' }}>Vertex (Google Cloud)</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">Platforma chmurowa Google, na której opieramy środowisko analityczne. Usługi Google Cloud mogą wykorzystywać pliki cookies lub podobne technologie do uwierzytelniania komunikacji oraz monitorowania wydajności i diagnostyki błędów.</p>
+            </div>
+          </div>
+          <div className="mt-4 ml-1 rounded-xl p-4 text-sm text-muted-foreground" style={{ background: '#f8fbff', border: '1px solid #e5f3ff' }}>
+            <strong className="text-foreground">Uwaga:</strong> Narzędzia takie jak Apify (do pobierania danych z marketplace) oraz Vertex AI (do analizy i modelowania) operują po stronie naszego serwera (backend) i nie zapisują bezpośrednio plików cookies na urządzeniu użytkownika.
+          </div>
+        </section>
+
+        <Section icon={<Settings className="h-5 w-5" />} number="5" title="Jak możesz zarządzać plikami cookies?">
+          <div className="space-y-3">
+            <div className="flex gap-3 rounded-xl p-4" style={{ background: '#f8fbff', border: '1px solid #e5f3ff' }}>
+              <span className="text-2xl shrink-0">🖥️</span>
+              <div>
+                <p className="font-semibold text-sm text-foreground mb-1">Panel zgód na stronie (Cookie Banner)</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">Przy pierwszej wizycie na stronie Shoppalyzer zostaniesz poproszony o wyrażenie zgody na użycie ciasteczek funkcjonalnych i analitycznych. Swoje preferencje możesz w każdej chwili zmienić klikając ikonkę 🍪 w lewym dolnym rogu strony.</p>
+              </div>
+            </div>
+            <div className="flex gap-3 rounded-xl p-4" style={{ background: '#f8fbff', border: '1px solid #e5f3ff' }}>
+              <span className="text-2xl shrink-0">🌐</span>
+              <div>
+                <p className="font-semibold text-sm text-foreground mb-1">Ustawienia przeglądarki</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">Niezależnie od naszych ustawień, możesz zablokować automatyczną obsługę cookies lub wymusić każdorazowe informowanie o ich przesłaniu, zmieniając ustawienia swojej przeglądarki internetowej (zazwyczaj w zakładkach "Prywatność" lub "Bezpieczeństwo").</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center gap-3 rounded-xl p-4" style={{ background: '#1E5F8E' }}>
+            <Mail className="h-5 w-5 text-white shrink-0" />
+            <p className="text-white text-sm">Pamiętaj: zablokowanie cookies niezbędnych może uniemożliwić korzystanie z konta na platformie. Pytania? <a href="mailto:shoppalyzer@gmail.com" className="underline font-bold text-orange-300">shoppalyzer@gmail.com</a></p>
+          </div>
+        </Section>
+
+      </div>
+    </div>
+  );
+};
+
+export default PolitykaCookies;
