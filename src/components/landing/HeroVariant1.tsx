@@ -30,7 +30,7 @@ export const HeroVariant1 = () => {
               <Button variant="cta" size="lg" onClick={openWaitlist}>
                 Sprawdź za darmo i zyskaj → 
               </Button>
-              <Button variant="outline" size="lg" onClick={() => navigate('/sample-report')}>
+<Button variant="outline" size="lg" onClick={() => { navigate('/sample-report'); window.scrollTo(0, 0); }}>
                 Zobacz przykładowy raport
               </Button>
             </div>
