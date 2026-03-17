@@ -26,14 +26,13 @@ const PolitykaPrywatnosci = () => {
       {/* Hero */}
       <div style={{ background: 'linear-gradient(135deg, #1E5F8E, #163D5C)' }} className="py-12 px-4">
         <div className="container mx-auto max-w-4xl">
-          <Button
-            variant="outline"
+<button
             onClick={() => { navigate('/'); window.scrollTo(0, 0); }}
-            className="flex items-center gap-2 mb-6 text-white border-white/40 hover:bg-white/10"
+            style={{ border: '1.5px solid rgba(255,255,255,0.4)', color: 'white', background: 'transparent', borderRadius: '8px', padding: '8px 16px', fontSize: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}
           >
             <ArrowLeft className="h-4 w-4" />
             Wróć na stronę główną
-          </Button>
+          </button>
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
               <Shield className="h-7 w-7 text-white" />
