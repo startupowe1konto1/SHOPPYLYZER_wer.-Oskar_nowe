@@ -35,7 +35,7 @@ export const Footer = () => {
             <li><button onClick={() => scrollTo('#korzysci')} className="hover:text-primary-foreground">Korzyści</button></li>
             <li><button onClick={() => scrollTo('#jak-to-dziala')} className="hover:text-primary-foreground">Jak to działa?</button></li>
             <li><button onClick={() => scrollTo('#cennik')} className="hover:text-primary-foreground">Cennik</button></li>
-            <li><button onClick={() => navigate('/sample-report')} className="hover:text-primary-foreground">Zobacz przykładowy raport</button></li>
+            <li><button onClick={() => { navigate('/sample-report'); window.scrollTo(0, 0); }} className="hover:text-primary-foreground">Zobacz przykładowy raport</button></li>
           </ul>
         </div>
         {/* Col 3 */}
