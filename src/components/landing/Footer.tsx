@@ -45,7 +45,7 @@ export const Footer = () => {
 <li><button onClick={() => { navigate('/polityka-prywatnosci'); window.scrollTo(0, 0); }} className="hover:text-primary-foreground">Polityka prywatności</button></li>
             <li><button onClick={() => { navigate('/regulamin'); window.scrollTo(0, 0); }} className="hover:text-primary-foreground">Regulamin</button></li>
             <li><button onClick={() => { navigate('/polityka-cookies'); window.scrollTo(0, 0); }} className="hover:text-primary-foreground">Polityka cookies</button></li>
-            <li><a href="#" className="hover:text-primary-foreground">Kontakt</a></li>
+            <li><button onClick={() => { navigate('/kontakt'); window.scrollTo(0, 0); }} className="hover:text-primary-foreground">Kontakt</button></li>
           </ul>
         </div>
         {/* Col 4 */}
