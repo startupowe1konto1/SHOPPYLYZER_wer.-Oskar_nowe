@@ -28,7 +28,8 @@ const Index = () => {
       <Testimonials />
       <FAQ />
       <FinalCTA />
-      <Footer />
+<Footer />
+      <CookieConsent />
     </div>
   );
 };
