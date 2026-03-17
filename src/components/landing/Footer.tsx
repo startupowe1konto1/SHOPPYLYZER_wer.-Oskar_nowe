@@ -45,7 +45,7 @@ export const Footer = () => {
             <li><a href="#" className="hover:text-primary-foreground">Polityka prywatności</a></li>
             <li><a href="#" className="hover:text-primary-foreground">Regulamin</a></li>
             <li><a href="#" className="hover:text-primary-foreground">Polityka cookies</a></li>
-            <li><a href="#" className="hover:text-primary-foreground">Kontakt</a></li>
+            <li><a href="#" className="hover:text-primary-foreground">Kontakt </a></li>
           </ul>
         </div>
 
