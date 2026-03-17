@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { WaitlistProvider } from "@/context/WaitlistContext";
+import { Footer } from "@/components/landing/Footer";
+import { CookieConsent } from "@/components/CookieConsent";
 import Index from "./pages/Index";
 import SampleReport from "./pages/SampleReport";
 import PolitykaPrywatnosci from "./pages/PolitykaPrywatnosci";
@@ -28,9 +30,10 @@ const App = () => (
             <Route path="/polityka-cookies" element={<PolitykaCookies />} />
             <Route path="/regulamin" element={<Regulamin />} />
             <Route path="/kontakt" element={<Kontakt />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Footer />
+          <CookieConsent />
         </WaitlistProvider>
       </BrowserRouter>
     </TooltipProvider>
