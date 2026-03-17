@@ -1,6 +1,6 @@
 import { Linkedin, Facebook } from 'lucide-react';
 import { useWaitlist } from '@/context/WaitlistContext';
-
+import { useNavigate } from 'react-router-dom';
 
 const scrollTo = (id: string) => {
   document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -8,6 +8,8 @@ const scrollTo = (id: string) => {
 
 export const Footer = () => {
   const { openWaitlist } = useWaitlist();
+  const navigate = useNavigate();
+
   return (
   <footer className="bg-foreground text-primary-foreground">
     <div className="container mx-auto px-4 py-16">
@@ -15,18 +17,17 @@ export const Footer = () => {
         {/* Col 1 */}
         <div>
           <img
-  src="/shoppalyzer_2.png"
-  alt="Shoppalyzer"
-  className="h-16 w-auto mb-4 brightness-0 invert cursor-pointer"
-  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-/>
+            src="/shoppalyzer_2.png"
+            alt="Shoppalyzer"
+            className="h-16 w-auto mb-4 brightness-0 invert cursor-pointer"
+            onClick={() => { navigate('/'); window.scrollTo(0, 0); }}
+          />
           <p className="text-sm text-primary-foreground/70 mb-4">Inteligentna analiza rynku dla sprzedawców Allegro.</p>
           <div className="flex gap-3">
             <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground"><Linkedin className="h-7 w-7" /></a>
             <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground"><Facebook className="h-7 w-7" /></a>
           </div>
         </div>
-
         {/* Col 2 */}
         <div>
           <h4 className="font-semibold mb-4 text-sm">Produkt</h4>
@@ -34,10 +35,9 @@ export const Footer = () => {
             <li><button onClick={() => scrollTo('#korzysci')} className="hover:text-primary-foreground">Korzyści</button></li>
             <li><button onClick={() => scrollTo('#jak-to-dziala')} className="hover:text-primary-foreground">Jak to działa?</button></li>
             <li><button onClick={() => scrollTo('#cennik')} className="hover:text-primary-foreground">Cennik</button></li>
-            <li><a href="/sample-report" className="hover:text-primary-foreground">Zobacz przykładowy raport</a></li>
+            <li><button onClick={() => navigate('/sample-report')} className="hover:text-primary-foreground">Zobacz przykładowy raport</button></li>
           </ul>
         </div>
-
         {/* Col 3 */}
         <div>
           <h4 className="font-semibold mb-4 text-sm">Prawo</h4>
@@ -45,10 +45,9 @@ export const Footer = () => {
             <li><a href="#" className="hover:text-primary-foreground">Polityka prywatności</a></li>
             <li><a href="#" className="hover:text-primary-foreground">Regulamin</a></li>
             <li><a href="#" className="hover:text-primary-foreground">Polityka cookies</a></li>
-            <li><a href="#" className="hover:text-primary-foreground">Kontakt </a></li>
+            <li><a href="#" className="hover:text-primary-foreground">Kontakt</a></li>
           </ul>
         </div>
-
         {/* Col 4 */}
         <div>
           <h4 className="font-semibold mb-4 text-sm">Newsletter</h4>
@@ -72,7 +71,7 @@ export const Footer = () => {
       </div>
     </div>
     <div className="border-t border-primary-foreground/10 py-4">
-      <p className="text-center text-xs text-primary-foreground/50"><p className="text-center text-xs text-primary-foreground/50">© 2026 Shoppalyzer. Wszelkie prawa zastrzeżone.</p></p>
+      <p className="text-center text-xs text-primary-foreground/50">© 2026 Shoppalyzer. Wszelkie prawa zastrzeżone.</p>
     </div>
   </footer>
   );
