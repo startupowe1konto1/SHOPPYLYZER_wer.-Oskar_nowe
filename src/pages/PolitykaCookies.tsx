@@ -1,64 +1,128 @@
-import { ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { ArrowLeft, Cookie, Shield, Clock, Building, Settings, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
+
+const Section = ({ icon, number, title, children }: { icon: React.ReactNode; number: string; title: string; children: React.ReactNode }) => (
+  <section className="mb-10">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: '#e5f3ff' }}>
+        <span style={{ color: '#1E5F8E' }}>{icon}</span>
+      </div>
+      <h2 className="text-xl font-bold" style={{ color: '#1E5F8E' }}>{number}. {title}</h2>
+    </div>
+    <div className="ml-1 border-l-2 pl-6" style={{ borderColor: '#F0921C' }}>
+      {children}
+    </div>
+  </section>
+);
 
 const PolitykaCookies = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="flex items-center gap-4 mb-8">
-          <Button variant="outline" onClick={() => navigate('/')} className="flex items-center gap-2">
+
+      {/* Hero */}
+      <div style={{ background: 'linear-gradient(135deg, #1E5F8E, #163D5C)' }} className="py-12 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <button
+            onClick={() => { navigate('/'); window.scrollTo(0, 0); }}
+            style={{ border: '1.5px solid rgba(255,255,255,0.4)', color: 'white', background: 'transparent', borderRadius: '8px', padding: '8px 16px', fontSize: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}
+          >
             <ArrowLeft className="h-4 w-4" />
             Wróć na stronę główną
-          </Button>
-          <h1 className="text-3xl font-bold text-primary">Polityka Cookies</h1>
+          </button>
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
+              <Cookie className="h-7 w-7 text-white" />
+            </div>
+            <div>
+              <h1 className="text-4xl font-extrabold text-white">Polityka Cookies</h1>
+              <p className="text-white/70 mt-1 text-sm">Shoppalyzer Sp. z o.o. — ostatnia aktualizacja: 2026</p>
+            </div>
+          </div>
         </div>
-        <Card className="p-8 space-y-6 text-sm text-foreground leading-relaxed">
-          <section>
-            <h2 className="text-lg font-bold text-primary mb-3">1. Czym są pliki cookies?</h2>
-            <p className="text-muted-foreground">Pliki cookies to niewielkie pliki tekstowe zapisywane na Twoim urządzeniu podczas korzystania z platformy Shoppalyzer. Służą do zapewnienia prawidłowego działania strony, zapamiętywania preferencji oraz zbierania danych analitycznych.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-primary mb-3">2. W jakim celu wykorzystujemy pliki cookies?</h2>
-            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-              <li><strong>Niezbędne (Techniczne):</strong> Konieczne do prawidłowego funkcjonowania dashboardu — logowanie, nawigacja, utrzymanie sesji.</li>
-              <li><strong>Funkcjonalne:</strong> Zapamiętują wybrane ustawienia (preferencje widoku, filtry analizowanych produktów).</li>
-              <li><strong>Analityczne i Wydajnościowe:</strong> Pomagają zrozumieć sposób korzystania z platformy. Zbierane dane są anonimowe.</li>
-              <li><strong>Związane z bezpieczeństwem i płatnościami:</strong> Wspierają procesy weryfikacji autentyczności użytkowników i obsługę subskrypcji.</li>
-            </ul>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-primary mb-3">3. Rodzaje cookies ze względu na czas przechowywania</h2>
-            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-              <li><strong>Cookies sesyjne:</strong> Pliki tymczasowe przechowywane do momentu zakończenia sesji lub zamknięcia przeglądarki.</li>
-              <li><strong>Cookies stałe:</strong> Pozostają na urządzeniu przez określony czas lub do momentu ręcznego usunięcia.</li>
-            </ul>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-primary mb-3">4. Pliki cookies podmiotów trzecich</h2>
-            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-              <li><strong>Bubble.io:</strong> Dashboard zbudowany na platformie Bubble.io wykorzystuje własne pliki techniczne i analityczne.</li>
-              <li><strong>Stripe:</strong> Operator płatności stosuje własne pliki cookies do weryfikacji tożsamości i zapobiegania nadużyciom finansowym.</li>
-              <li><strong>Gemini (Google):</strong> Modele językowe używane do generowania rekomendacji. Integracja może wiązać się z technicznymi plikami cookies Google służącymi autoryzacji zapytań.</li>
-              <li><strong>Vertex (Google Cloud):</strong> Platforma chmurowa używana do analizy danych. Usługi Google Cloud mogą wykorzystywać pliki cookies do uwierzytelniania komunikacji i monitorowania wydajności.</li>
-            </ul>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-primary mb-3">5. Jak możesz zarządzać plikami cookies?</h2>
-            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-              <li><strong>Panel zgód na stronie:</strong> Przy pierwszej wizycie zostaniesz poproszony o wyrażenie zgody na użycie ciasteczek. Preferencje możesz zmienić w ustawieniach profilu.</li>
-              <li><strong>Ustawienia przeglądarki:</strong> Możesz zablokować automatyczną obsługę cookies w ustawieniach przeglądarki (zakładka "Prywatność" lub "Bezpieczeństwo").</li>
-            </ul>
-            <p className="text-muted-foreground mt-2">Pamiętaj, że zablokowanie cookies niezbędnych może uniemożliwić korzystanie z konta na platformie.</p>
-          </section>
-        </Card>
       </div>
-    </div>
-  );
-};
 
-export default PolitykaCookies;
+      {/* Highlight bar */}
+      <div style={{ background: '#F0921C' }} className="py-3 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <p className="text-white text-sm font-medium text-center">
+            🍪 Masz pełną kontrolę nad plikami cookies — możesz je dostosować lub odrzucić w dowolnym momencie
+          </p>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-12 max-w-4xl">
+
+        <Section icon={<Cookie className="h-5 w-5" />} number="1" title="Czym są pliki cookies?">
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Pliki cookies (ciasteczka) to niewielkie pliki tekstowe, które są zapisywane na Twoim urządzeniu końcowym (komputerze, smartfonie, tablecie) podczas korzystania z platformy Shoppalyzer. Służą one do zapewnienia prawidłowego działania strony, zapamiętywania Twoich preferencji oraz zbierania danych analitycznych, które pomagają nam rozwijać nasze narzędzie.
+          </p>
+        </Section>
+
+        {/* Cele cookies — karty */}
+        <section className="mb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: '#e5f3ff' }}>
+              <Shield className="h-5 w-5" style={{ color: '#1E5F8E' }} />
+            </div>
+            <h2 className="text-xl font-bold" style={{ color: '#1E5F8E' }}>2. W jakim celu wykorzystujemy pliki cookies?</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 ml-1">
+            {[
+              { title: 'Niezbędne (Techniczne)', desc: 'Są absolutnie konieczne do prawidłowego funkcjonowania naszego dashboardu. Umożliwiają m.in. logowanie do konta, nawigację po stronie oraz utrzymanie bezpiecznej sesji użytkownika. Bez nich strona nie mogłaby działać.', icon: '🔒', required: true },
+              { title: 'Funkcjonalne', desc: 'Pozwalają stronie zapamiętać wybrane przez Ciebie ustawienia (np. preferencje widoku, filtry analizowanych produktów), co znacząco ułatwia i przyspiesza codzienną pracę z narzędziem.', icon: '⚙️', required: false },
+              { title: 'Analityczne i Wydajnościowe', desc: 'Pomagają nam zrozumieć, w jaki sposób użytkownicy korzystają z platformy. Dzięki nim wiemy, które funkcje są najbardziej przydatne, a które wymagają optymalizacji. Zbierane dane są anonimowe.', icon: '📊', required: false },
+              { title: 'Bezpieczeństwo i płatności', desc: 'Wspierają procesy weryfikacji autentyczności użytkowników, zapobiegają oszustwom oraz są niezbędne do prawidłowej obsługi subskrypcji.', icon: '💳', required: true },
+            ].map(c => (
+              <div key={c.title} className="rounded-xl p-5 border" style={{ borderColor: '#e5f3ff', background: '#f8fbff' }}>
+                <div className="flex justify-between items-start mb-2">
+                  <div className="text-2xl">{c.icon}</div>
+                  {c.required
+                    ? <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: '#1E5F8E', color: 'white' }}>Zawsze aktywne</span>
+                    : <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: '#fff3e0', color: '#F0921C' }}>Opcjonalne</span>
+                  }
+                </div>
+                <h3 className="font-bold text-sm mb-1" style={{ color: '#1E5F8E' }}>{c.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Czas przechowywania */}
+        <section className="mb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: '#e5f3ff' }}>
+              <Clock className="h-5 w-5" style={{ color: '#1E5F8E' }} />
+            </div>
+            <h2 className="text-xl font-bold" style={{ color: '#1E5F8E' }}>3. Rodzaje cookies ze względu na czas przechowywania</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 ml-1">
+            {[
+              { title: 'Cookies sesyjne', desc: 'Są to pliki tymczasowe, które przechowujemy w pamięci Twojej przeglądarki tylko do momentu zakończenia sesji (wylogowania się z platformy lub zamknięcia przeglądarki).', icon: '⏱️' },
+              { title: 'Cookies stałe', desc: 'Pozostają na Twoim urządzeniu przez określony czas (zdefiniowany w parametrach pliku) lub do momentu ich ręcznego usunięcia. Służą m.in. do tego, abyś nie musiał logować się ponownie przy każdej wizycie.', icon: '💾' },
+            ].map(c => (
+              <div key={c.title} className="rounded-xl p-5 border" style={{ borderColor: '#e5f3ff', background: '#f8fbff' }}>
+                <div className="text-2xl mb-2">{c.icon}</div>
+                <h3 className="font-bold text-sm mb-1" style={{ color: '#1E5F8E' }}>{c.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Podmioty trzecie */}
+        <section className="mb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: '#e5f3ff' }}>
+              <Building className="h-5 w-5" style={{ color: '#1E5F8E' }} />
+            </div>
+            <h2 className="text-xl font-bold" style={{ color: '#1E5F8E' }}>4. Pliki cookies podmiotów trzecich</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 ml-1">
+            {[
+              { title: 'Bubble.io', desc: 'Nasz dashboard, z którym bezpośrednio wchodzisz w interakcję, jest zbudowany na platformie Bubble.io. Platforma ta wykorzystuje własne pliki techniczne i analityczne niezbędne do prawidłowego wyświetlania interfejsu oraz obsługi logiki strony.', icon: '🔵' },
+              { title: 'Stripe', desc: 'W celu umożliwienia bezpiecznego procesowania płatności subskrypcyjnych, zintegrowaliśmy platformę z operatorem Stripe. Stripe stosuje własne pliki cookies w celu weryfikacji tożsamości, zapobiegania nadużyciom finansowym oraz obsługi płatności.', icon: '💜' },
+              { title: 'Gemini (Google)', desc: 'Wykorzystujemy zaawansowane modele językowe Gemini do analizowania danych rynkowych i generowania rekomendacji. Integracja z infrastrukturą Google może wiązać się ze stosowaniem technicznych plików cookies służących autoryzacji
