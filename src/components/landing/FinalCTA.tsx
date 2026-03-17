@@ -22,7 +22,7 @@ export const FinalCTA = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <button
-              onClick={() => navigate('/sample-report')}
+              onClick={() => { navigate('/sample-report'); window.scrollTo(0, 0); }}
               style={{
                 background: 'transparent',
                 border: '2px solid white',
